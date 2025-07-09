@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-06-17 18:28:38 by Eclipse SUMO netedit Version 1.22.0
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- VTypes -->
+    <vType id="bus" vClass="bus" color="green"/>
+    <vType id="t_0"/>
+    <vType id="t_1"/>
+    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <flow id="f_0" type="bus" begin="0.00" color="0,255,56" fromJunction="J9" toJunction="J16" end="3600.00" vehsPerHour="20"/>
+    <flow id="flow_1" begin="0.00" color="80,151,20" fromJunction="J15" toJunction="J14" end="3600.00" period="exp(0.02)"/>
+    <flow id="flow_10" begin="0.00" color="95,113,1" fromJunction="J9" toJunction="J19" end="3600.00" period="exp(0.02)"/>
+    <flow id="flow_11" begin="0.00" color="8,200,205" fromJunction="J9" toJunction="J16" end="3600.00" period="exp(0.01)"/>
+    <flow id="flow_12" begin="0.00" color="176,139,188" fromJunction="J9" toJunction="J18" end="3600.00" period="exp(0.01)"/>
+    <flow id="flow_13" begin="0.00" color="225,236,68" fromJunction="J14" toJunction="J13" end="3600.00" period="exp(0.01)"/>
+    <flow id="flow_14" begin="0.00" color="183,206,117" fromJunction="J11" toJunction="J9" end="3600.00" period="exp(0.04)"/>
+    <flow id="flow_2" begin="0.00" color="11,85,237" fromJunction="J9" toJunction="J11" end="3600.00" period="exp(0.02)"/>
+    <flow id="flow_3" begin="0.00" color="123,207,83" fromJunction="J17" toJunction="J16" end="3600.00" period="exp(0.01)"/>
+    <flow id="flow_4" begin="0.00" color="249,195,37" fromJunction="J11" toJunction="J12" end="3600.00" period="exp(0.01)"/>
+    <flow id="flow_5" begin="0.00" color="114,74,154" fromJunction="J18" toJunction="J8" end="3600.00" period="exp(0.01)"/>
+    <flow id="flow_6" begin="0.00" color="141,36,230" fromJunction="J14" toJunction="J10" end="3600.00" period="exp(0.03)"/>
+    <flow id="flow_7" begin="0.00" color="73,56,198" fromJunction="J11" toJunction="J9" end="3600.00" period="exp(0.03)"/>
+    <flow id="flow_8" begin="0.00" color="255,230,176" fromJunction="J19" toJunction="J14" end="3600.00" period="exp(0.04)"/>
+    <flow id="flow_9" begin="0.00" color="50,36,0" fromJunction="J15" toJunction="J19" end="3600.00" period="exp(0.01)"/>
+    <flow id="f_1" type="bus" begin="30.00" color="0,255,56" fromJunction="J16" toJunction="J9" end="3600.00" vehsPerHour="20"/>
+    <flow id="f_2" type="bus" begin="80.00" color="0,255,56" fromJunction="J19" toJunction="J12" end="3600.00" vehsPerHour="20"/>
+    <flow id="f_3" type="bus" begin="90.00" color="0,255,56" fromJunction="J12" toJunction="J19" end="3600.00" vehsPerHour="20"/>
+</routes>
