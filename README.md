@@ -1,1 +1,1 @@
-# Smart-Valus-based-Traffic-Signal-Control
+# Smart Value-based Traffic Signal Control
