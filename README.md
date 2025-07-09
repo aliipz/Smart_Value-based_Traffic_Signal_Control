@@ -1,7 +1,10 @@
-# Smart Value-based Traffic Signal Control
-# 🧠 Smart Value-Based Traffic Control System
+<p align="center">
+  <img src="assets/portada2.png" alt="Icono semáforo" height="400"/>
+</p>
 
-Sistema inteligente de control de semáforos basado en valores, desarrollado mediante aprendizaje por refuerzo y probado en un  sistema de  simulación de tráfico urbano.
+# 🧠 ¿Qué es?
+
+Un sistema inteligente de control de semáforos basado en valores, desarrollado mediante aprendizaje por refuerzo y probado en un  sistema de  simulación de tráfico urbano.
 
 ---
 
@@ -51,27 +54,28 @@ Este trabajo aborda el desafío del diseño e implementación de sistemas de con
 📄 test.py           →  Evaluación de agentes con métricas basadas en valores
 ```
 ---
-## 🚦 ¿Cómo usar el sistema?
 
-![Semáforo inteligente](ruta/a/tu/semaforo.png)
+<h2>❓  ¿Cómo usar el sistema? <img src="assets/semaforo2.png" alt="icono_semáforo" width="80" style="vertical-align:middle;"></h2>
 
-1. **Configura SUMO**  
+
+
+1️⃣ **Configura SUMO**  
    - Descarga SUMO desde su sitio oficial: [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/)  
    - Crea la variable de entorno `SUMO_HOME` que apunte a la carpeta raíz de tu instalación de SUMO para evitar modificar el código. Si prefieres, puedes establecer directamente en el código la ruta a tu carpeta de SUMO (tendrás que  modificarlo en los scripts de train.py, test.py y SUMOextractor).
 
-2. **Prepara el entorno Python**  
+2️⃣ **Prepara el entorno Python**  
    - Asegúrate de tener Python 3.10+ instalado y un editor de código (como VSCode, PyCharm o similar).  
    - Instala las dependencias del proyecto con `pip install -r requirements.txt`.
 
-3. **Crea o utiliza una simulación de tráfico**  
+3️⃣ **Crea o utiliza una simulación de tráfico**  
    - Para crear tu propia red, abre **NetEdit** (se instala con SUMO) y diseña la red a tu gusto.  
    > Nota: Este proyecto considera carreteras con intersecciones de 4 carriles en ambas direcciones. Para otras topologías será necesario modificar el extractor SUMO o incluso el entorno, en caso de que cambien las observaciones o acciones disponibles.  
    - Para usar la  red utilizada  en  los experimentos, copia los archivos de la carpeta `simulations` y pégalos en tu directorio de SUMO (tu `SUMO_HOME`).
 
-4. **Ejecuta y prueba**  
+4️⃣ **Ejecuta y prueba**  
    Puedes optar por:
 
-   ### A) Probar el catálogo de modelos existentes
+   ### 🅰️ Probar el catálogo de modelos existentes
 
    - Este catálogo incluye políticas orientadas a diferentes valores sociales:  
      - Eficiencia (reduce tiempos de retraso)  
@@ -81,36 +85,36 @@ Este trabajo aborda el desafío del diseño e implementación de sistemas de con
 
 
    A1. **Selecciona el modelo que deseas probar**  
-      - Elige uno de los modelos preentrenados disponibles en el catálogo.
+   - Elige uno de los modelos preentrenados disponibles en el catálogo.
 
    A2. **Ejecuta el script `test.py`**  
-      - Utiliza el script `test.py` seleccionando el nombre del modelo que quieres probar. Puedes ajustar el número de episodios o activar/desactivar el modo gráfico modificando la opción `-gui` en el comando `sumo_cmd`.
+   - Utiliza el script `test.py` seleccionando el nombre del modelo que quieres probar. Puedes ajustar el número de episodios o activar/desactivar el modo gráfico modificando la opción `-gui` en el comando `sumo_cmd`.
 
    A3. **Observa  la simulación**  
-      - Se abrirá la interfaz  gráfica de SUMO y podrás  obeservar la  simulacion de tráfico controlada por los semaforos selccionados. Al final, obtendrás métricas de desempeño.
+   - Se abrirá la interfaz  gráfica de SUMO y podrás  obeservar la  simulacion de tráfico controlada por los semaforos selccionados. Al final, obtendrás métricas de desempeño.
 
-   ### B) Crear tus propios agentes
+   ### 🅱️ Crear tus propios agentes
    
-      B1. **Define tu nuevo tipo de agente**  
-      - Crea una nueva clase de agente en la carpeta `agents/`, heredando de `LearningAgent` si será un agente de aprendizaje o de `BaseAgent` en otro caso.
+   B1. **Define tu nuevo tipo de agente**  
+   - Crea una nueva clase de agente en la carpeta `agents/`, heredando de `LearningAgent` si será un agente de aprendizaje o de `BaseAgent` en otro caso.
 
-      B2. **Implementa los métodos necesarios**  
-      - Implementa el método `act` y, en caso de ser un agente de aprendizaje, el método `act_and_train`. Estos  métodos determinarán la forma de actuar de tus  agentes, así como su proceso de entrenamiento.
-      
-      B3. **Personaliza la señal de recompensa**  
-      -  Puedes modificar la función de recompensa que recibirán los agentes accediendo al entorno (`TrafficEnvironment.py`) y modificando el método `get_reward`.
-      
-      B4. **Integra tu  nuevo  tipo de  agente en el script de entrenamiento**  
-      - Una vez configurado todo esto, ve al script `train.py` e incorpora tu tipo de agente en el método `train`, en la parte donde se crean los agentes, dándole el nombre que prefieras.
-      
-      B5. **Ejecuta el entrenamiento**  
-      - Ejecuta el entrenamiento, indicando el nombre con el que quieres guardar el modelo y, opcionalmente, el número de episodios a ejecutar. Si no lo especificas, se utilizará el método de early stopping.
-      
-      2F. **Analiza los resultados**  
-      - Espera al entrenamiento y obtendrás las gráficas: curva de aprendizaje y evolución de las diferentes métricas. Tu modelo estará listo  para ser probado.
-      
-      2G. **Prueba tu modelo**
-      -  Vuelve a la opción A para probar tu modelo.
+   B2. **Implementa los métodos necesarios**  
+   - Implementa el método `act` y, en caso de ser un agente de aprendizaje, el método `act_and_train`. Estos  métodos determinarán la forma de actuar de tus  agentes, así como su proceso de entrenamiento.
+   
+   B3. **Personaliza la señal de recompensa**  
+   - Puedes modificar la función de recompensa que recibirán los agentes accediendo al entorno (`TrafficEnvironment.py`) y modificando el método `get_reward`.
+   
+   B4. **Integra tu  nuevo  tipo de  agente en el script de entrenamiento**  
+   - Una vez configurado todo esto, ve al script `train.py` e incorpora tu tipo de agente en el método `train`, en la parte donde se crean los agentes, dándole el nombre que prefieras.
+   
+   B5. **Ejecuta el entrenamiento**  
+   - Ejecuta el entrenamiento, indicando el nombre con el que quieres guardar el modelo y, opcionalmente, el número de episodios a ejecutar. Si no lo especificas, se utilizará el método de early stopping.
+   
+  B6. **Analiza los resultados**  
+   - Espera al entrenamiento y obtendrás las gráficas: curva de aprendizaje y evolución de las diferentes métricas. Tu modelo estará listo  para ser probado.
+   
+  B7. **Prueba tu modelo**
+   - Vuelve a la opción A para probar tu modelo.
 ---
 
 
