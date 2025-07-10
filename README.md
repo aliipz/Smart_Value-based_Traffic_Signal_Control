@@ -4,7 +4,7 @@
 
 # 🧠 ¿Qué es?
 
-Un sistema  de desarrollo de esquemas de control de tráficos que permite diseñar **semáforos inteligentes basado en valores** desarrollado mediante aprendizaje por refuerzo, evaluando  su desempeño  en un sistema de simulación de tráfico urbano.
+Un sistema  de desarrollo de esquemas de control de tráfico que permite diseñar **semáforos inteligentes basados en valores** mediante aprendizaje por refuerzo, evaluando  su desempeño  en un entorno de simulación de tráfico urbano.
 
 ---
 
