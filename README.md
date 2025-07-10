@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/portada2.png" alt="Icono semáforo" height="400"/>
+  <img src="assets/portada_sin_fondo.png" alt="Icono semáforo" height="400"/>
 </p>
 
 # 🧠 ¿Qué es?
