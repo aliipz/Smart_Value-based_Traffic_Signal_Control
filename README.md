@@ -1,120 +1,124 @@
 <p align="center">
-  <img src="assets/portada_sin_fondo.png" alt="Icono semáforo" height="400"/>
+  <img src="assets/portada_sin_fondo.png" alt="Traffic light icon" height="400"/>
 </p>
 
-# 🧠 ¿Qué es?
+# 🧠 What is it?
 
-Un sistema  de desarrollo de esquemas de control de tráfico que permite diseñar **semáforos inteligentes basados en valores** mediante aprendizaje por refuerzo, evaluando  su desempeño  en un entorno de simulación de tráfico urbano.
-
----
-
-## 📝 Resumen
-
-Frente al desafío global de congestión urbana, los **semáforos inteligentes** emergen como herramienta clave, combinando el procesamiento de datos en tiempo real con la toma de decisiones autónoma, logrando reducir atascos y tiempos de espera.
-
-El análisis de los sistemas adaptativos de control de tráfico constituye un área en pleno desarrollo, donde destacan especialmente las técnicas de **aprendizaje por refuerzo**. Este paradigma permite a los agentes semafóricos descubrir de forma autónoma políticas óptimas, aprendiendo mediante la interacción continua con el entorno vial, guiados por señales de recompensa que evalúan su comportamiento.
-
-La flexibilidad en el diseño de recompensas abre la oportunidad de incorporar **valores sociales** más allá del objetivo tradicional de eficiencia, como **sostenibilidad**, **seguridad** o **equidad**. Surge así el concepto de **semáforos inteligentes basados en valores**, sistemas cuyo comportamiento se guía explícitamente por consideraciones sociales, priorizando selectivamente unos valores u otros según necesidades urbanas específicas.
-
-Este trabajo aborda el desafío del diseño e implementación de sistemas de control de tráfico basados en valores mediante un enfoque integral: primero, se desarrolla un entorno integrado de entrenamiento y evaluación de políticas semafóricas utilizando el simulador de tráfico SUMO; segundo, se implementa un algoritmo de aprendizaje por refuerzo multiagente con señales de recompensa especializadas, generando un **catálogo de esquemas de control** orientados a diferentes valores sociales. Este repertorio permite la selección dinámica de políticas según necesidades contextuales específicas. Finalmente, se realiza una evaluación comparativa rigurosa entre estos modelos y sistemas tradicionales, de tiempos fijos y adaptativos basados en reglas heurísticas.
+A traffic control scheme development system that enables the design of **value-based intelligent traffic lights** through reinforcement learning, evaluating their performance in a simulated urban traffic environment.
 
 ---
 
-### 🎯 Objetivos del   proyeceto
+## 📝 Summary
 
-- Construir un entorno integrado (SUMO + Gymnasium) para simular y comparar políticas de control semafórico basadas en **eficiencia**, **sostenibilidad** y **equidad modal**.
-- Evaluar desde modelos clásicos (**tiempos fijos**), pasando por sistemas **adaptativos basados en reglas heurísticas**, hasta agentes avanzados de **aprendizaje por refuerzo profundo**.
-- Generar un catálogo de agentes RL con **perfiles de valores diferenciados** según el diseño de la recompensa.
+In the face of global urban congestion, **intelligent traffic lights** are emerging as a key tool, combining real-time data processing with autonomous decision-making to reduce traffic jams and waiting times.
 
+The analysis of adaptive traffic control systems is a growing field, with **reinforcement learning** techniques standing out. This paradigm enables traffic light agents to autonomously discover optimal policies through continuous interaction with the road environment, guided by reward signals that assess their behavior.
 
+The flexibility in reward design allows the incorporation of **social values** beyond traditional efficiency goals, such as **sustainability**, **safety**, or **equity**. This leads to the concept of **value-based intelligent traffic lights**—systems explicitly guided by social considerations, selectively prioritizing values depending on specific urban needs.
+
+This project addresses the challenge of designing and implementing value-based traffic control systems through a comprehensive approach:  
+1. Developing an integrated environment using the SUMO simulator for training and evaluation.  
+2. Implementing a multi-agent reinforcement learning algorithm with specialized reward signals to generate a **catalog of control schemes** aligned with different social values.  
+3. Performing a rigorous comparative evaluation against traditional systems (fixed-time and heuristic-based adaptive models).
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+### 🎯 Project Goals
+
+- Build an integrated environment (SUMO + Gymnasium) to simulate and compare traffic light control policies based on **efficiency**, **sustainability**, and **modal equity**.
+- Evaluate from classic models (**fixed-time**), through **heuristic rule-based systems**, to advanced **deep reinforcement learning agents**.
+- Generate a catalog of RL agents with **differentiated value profiles** depending on the reward design.
+
+---
+
+## ⚙️ Technologies Used
 
 - **Python 3.10+**
-- [**SUMO**](https://www.eclipse.org/sumo/) – Motor de simulación de tráfico
-- [**Gymnasium**](https://gymnasium.farama.org/) – Entorno RL personalizable
-- **PyTorch** – Entrenamiento de redes neuronales
+- [**SUMO**](https://www.eclipse.org/sumo/) – Traffic simulation engine
+- [**Gymnasium**](https://gymnasium.farama.org/) – Customizable RL environment
+- **PyTorch** – Neural network training
 
 ---
 
-## 🗂️ Estructura del repositorio
+## 🗂️ Repository Structure
 
 ```plaintext
-📁 /agents           → Implementaciones  de los  diferentes  tipos de agentes (tiempos fijos, heurísticos, de aprendizaje)
-📁 /models           → Modelos entrenados, con  diferentes perfiles  de valores
-📁 /plots            → Gráficas generadas a partir de los modelos entrenados
-📁 /simulation       → Archivos de simulación utilizados en los experimentos: '.net`, `.rou` y `.sumoconfig`.
-📄 createRoutes.py   → Script para crear flujos de vehículos aleatorios a partir de una red de tráfico
-📄 graphics.txt      → Script para generar gráficas relacionadas con el entrenamiento de agentes
-📄 SUMOextractor.py  → Script  con  diferentes  métodos para extraer información de archivos `.net` de la red de tráfico
-📄 TrafficEnvironment.py  → Implementación del entorno (Gymnasium) con el que interactúan los agentes
-📄 train.py          → Entrenamiento de nuevos agentes 
-📄 test.py           →  Evaluación de agentes con métricas basadas en valores
+📁 /agents           → Implementations of various agent types (fixed-time, heuristic, learning-based)
+📁 /models           → Trained models with different value profiles
+📁 /plots            → Plots generated from the trained models
+📁 /simulation       → Simulation files used in experiments: `.net`, `.rou`, `.sumoconfig`
+📄 createRoutes.py   → Script to create random vehicle flows from a traffic network
+📄 graphics.txt      → Script to generate training-related plots
+📄 SUMOextractor.py  → Methods for extracting info from `.net` traffic network files
+📄 TrafficEnvironment.py → Gymnasium environment implementation for agent interaction
+📄 train.py          → Agent training script
+📄 test.py           → Agent evaluation using value-based metrics
 ```
 ---
 
-<h2>❓  ¿Cómo usar el sistema? <img src="assets/semaforo2.png" alt="icono_semáforo" width="80" style="vertical-align:middle;"></h2>
 
+## ❓ How to use the system? <img src="assets/semaforo2.png" alt="traffic_light_icon" width="80" style="vertical-align:middle;">
 
+### 1️⃣ Set up SUMO
+- Download SUMO from: [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/)
+- Create an environment variable `SUMO_HOME` pointing to your SUMO installation root folder.  
+  Alternatively, you can directly set the path in the scripts (`train.py`, `test.py`, and `SUMOextractor.py`).
 
-1️⃣ **Configura SUMO**  
-   - Descarga SUMO desde su sitio oficial: [https://www.eclipse.org/sumo/](https://www.eclipse.org/sumo/)  
-   - Crea la variable de entorno `SUMO_HOME` que apunte a la carpeta raíz de tu instalación de SUMO para evitar modificar el código. Si prefieres, puedes establecer directamente en el código la ruta a tu carpeta de SUMO (tendrás que  modificarlo en los scripts de train.py, test.py y SUMOextractor).
+### 2️⃣ Set up the Python environment
+- Make sure Python 3.10+ is installed.
+- Use a code editor (like VSCode or PyCharm).
+- Install dependencies with:
+  ```bash
+  `pip install -r requirements.txt`.
+  ```
 
-2️⃣ **Prepara el entorno Python**  
-   - Asegúrate de tener Python 3.10+ instalado y un editor de código (como VSCode, PyCharm o similar).  
-   - Instala las dependencias del proyecto con `pip install -r requirements.txt`.
+  ### 3️⃣ Create or use a traffic simulation
+- To design your own network, open **NetEdit** (included with SUMO) and build your map to your liking.  
+> ⚠️ Note: This project assumes roads with 4-lane intersections in both directions. If you use different topologies, you may need to modify the `SUMOextractor.py` script or even the environment itself if observations or actions change.
 
-3️⃣ **Crea o utiliza una simulación de tráfico**  
-   - Para crear tu propia red, abre **NetEdit** (se instala con SUMO) y diseña la red a tu gusto.  
-   > Nota: Este proyecto considera carreteras con intersecciones de 4 carriles en ambas direcciones. Para otras topologías será necesario modificar el extractor SUMO o incluso el entorno, en caso de que cambien las observaciones o acciones disponibles.  
-   - Para usar la  red utilizada  en  los experimentos, copia los archivos de la carpeta `simulations` y pégalos en tu directorio de SUMO (tu `SUMO_HOME`).
+- To use the network from the experiments, copy the files from the `simulation/` folder and paste them into your SUMO directory (your `SUMO_HOME` path).
 
-4️⃣ **Ejecuta y prueba**  
-   Puedes optar por:
+### 4️⃣ Run and test
+You can either:
+#### 🅰️ Use the existing model catalog
 
-   ### 🅰️ Probar el catálogo de modelos existentes
+Includes policies oriented toward different social values:
+- **Efficiency** (reduces delay times)
+- **Modal equity** (prioritizes public transport)
+- **Sustainability – climate** (reduces fuel consumption and CO₂ emissions)
+- **Sustainability – air quality** (reduces NOx emissions)
 
-   - Este catálogo incluye políticas orientadas a diferentes valores sociales:  
-     - Eficiencia (reduce tiempos de retraso)  
-     - Equidad modal (favorece transporte público)  
-     - Sostenibilidad: climática (reduce el consumo de combustible y emisiones de CO2)
-     - Sostenibilidad: calidad del aire (reduce emisiones NOx)
+**Steps:**
 
+A1. **Choose a model to test**  
+  - Select one of the pre-trained models available in the catalog.
 
-   A1. **Selecciona el modelo que deseas probar**  
-   - Elige uno de los modelos preentrenados disponibles en el catálogo.
+A2. **Run the `test.py` script**
+- You can adjust the number of episodes or enable/disable the GUI by changing the `-gui` option in the `sumo_cmd`.
 
-   A2. **Ejecuta el script `test.py`**  
-   - Utiliza el script `test.py` seleccionando el nombre del modelo que quieres probar. Puedes ajustar el número de episodios o activar/desactivar el modo gráfico modificando la opción `-gui` en el comando `sumo_cmd`.
+A3. **Observe the simulation**  
+- The SUMO GUI will launch, and you’ll see the simulation in action. Once it's done, performance metrics will be displayed.
 
-   A3. **Observa  la simulación**  
-   - Se abrirá la interfaz  gráfica de SUMO y podrás  obeservar la  simulacion de tráfico controlada por los semaforos selccionados. Al final, obtendrás métricas de desempeño.
+#### 🅱️ Create your own agents
 
-   ### 🅱️ Crear tus propios agentes
-   
-   B1. **Define tu nuevo tipo de agente**  
-   - Crea una nueva clase de agente en la carpeta `agents/`, heredando de `LearningAgent` si será un agente de aprendizaje o de `BaseAgent` en otro caso.
+B1. **Define your new agent type**  
+- Create a new class in the `agents/` folder. Inherit from `LearningAgent` if it’s a learning agent, or from `BaseAgent` otherwise.
 
-   B2. **Implementa los métodos necesarios**  
-   - Implementa el método `act` y, en caso de ser un agente de aprendizaje, el método `act_and_train`. Estos  métodos determinarán la forma de actuar de tus  agentes, así como su proceso de entrenamiento.
-   
-   B3. **Personaliza la señal de recompensa**  
-   - Puedes modificar la función de recompensa que recibirán los agentes accediendo al entorno (`TrafficEnvironment.py`) y modificando el método `get_reward`.
-   
-   B4. **Integra tu  nuevo  tipo de  agente en el script de entrenamiento**  
-   - Una vez configurado todo esto, ve al script `train.py` e incorpora tu tipo de agente en el método `train`, en la parte donde se crean los agentes, dándole el nombre que prefieras.
-   
-   B5. **Ejecuta el entrenamiento**  
-   - Ejecuta el entrenamiento, indicando el nombre con el que quieres guardar el modelo y, opcionalmente, el número de episodios a ejecutar. Si no lo especificas, se utilizará el método de early stopping.
-   
-  B6. **Analiza los resultados**  
-   - Espera al entrenamiento y obtendrás las gráficas: curva de aprendizaje y evolución de las diferentes métricas. Tu modelo estará listo  para ser probado.
-   
-  B7. **Prueba tu modelo**
-   - Vuelve a la opción A para probar tu modelo.
----
+B2. **Implement required methods**  
+- Implement the `act` method, and if your agent learns during training, also implement `act_and_train`.
 
+B3. **Customize the reward signal**  
+- Modify the `get_reward` method inside `TrafficEnvironment.py` to define how your agent receives feedback from the environment.
+
+B4. **Integrate the agent into the training script**  
+- In `train.py`, update the `train()` function to include your new agent type and assign it a name.
+
+B5. **Run the training**
+- Run the training, specifying the name under which the model will be saved, and optionally, the number of episodes to run. If not specified, early stopping will be used.
+
+B6. **Analyze the results**  
+- After training, learning curves and performance metrics will be generated. Your model will be saved and ready for testing.
+
+B7. **Test your model**  
+- Return to option 🅰️ and follow the steps to test your custom-trained agent.
 
